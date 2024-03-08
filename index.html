@@ -14,7 +14,7 @@
     <section
       class="contact-container flex flex-col justify-center items-center mt-2 gap-2"
     >
-      <article class="contact w-[90%] bg-gray-500 flex">
+      <!-- <article class="contact w-[90%] bg-gray-500 flex">
         <div class="info flex flex-col text-white p-2 mt-2">
           <div class="name-user">
             <strong class="font-[16]">name:</strong><span></span>
@@ -30,10 +30,33 @@
           <button class="bg-green-500">Delete</button>
           <button class="bg-yellow-300">Edit</button>
         </div>
-      </article>
+      </article> -->
+
+      <!-- <article class="contact w-[90%] bg-gray-500 flex">
+        <div class="info flex flex-col text-white p-2 mt-2">
+          <div class="name-user">
+            <strong class="font-[16]">name:</strong
+            ><input id="name" type="text" />
+          </div>
+          <div class="phone-user">
+            <strong class="font-[14]">PhoneNumber:</strong
+            ><input id="phone" type="text" />
+          </div>
+          <div class="email-user">
+            <strong class="font-[14]">email:</strong
+            ><input id="email" type="text" />
+          </div>
+        </div>
+        <div class="action flex items-center justify-center gap-4 w-full">
+          <button class="bg-yellow-300" onclick="getInputValue()">Save</button>
+        </div>
+      </article> -->
     </section>
 
-    <button class="add bg-red-600 p-2 rounded-[50%] fixed bottom-1 right-1">
+    <button
+      id="addBtn"
+      class="add bg-red-600 p-2 rounded-[50%] fixed bottom-1 right-1"
+    >
       Add
     </button>
     <script src="./main.js"></script>

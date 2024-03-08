@@ -1,4 +1,8 @@
+// "use strict";
+
 const section = document.querySelector("section");
+const addBtn = document.getElementById("addBtn");
+addBtn.addEventListener("click", addedData);
 
 function renderContacts(contacts) {
   section.innerHTML = "";
@@ -48,24 +52,65 @@ function editContacts() {
   console.log("salmm aziz");
 }
 
-/* <article class="contact w-[90%] bg-gray-500 flex">
-<div class="info flex flex-col text-white p-2 mt-2">
+function addedData() {
+  const article = document.createElement("article");
+  article.className = "contact w-[90%] bg-gray-500 flex";
+  article.innerHTML = `
+  <div class="info flex flex-col p-2 mt-2">
   <div class="name-user">
-    <strong class="font-[16]">name:</strong><span></span>
+    <strong class="font-[16]">name:</strong
+    ><input id="name" type="text" />
   </div>
   <div class="phone-user">
-    <strong class="font-[14]">PhoneNumber:</strong><span></span>
+    <strong class="font-[14]">PhoneNumber:</strong
+    ><input id="phone" type="text" />
   </div>
   <div class="email-user">
-    <strong class="font-[14]">email:</strong><span></span>
+    <strong class="font-[14]">email:</strong
+    ><input id="email" type="text" />
   </div>
 </div>
 <div class="action flex items-center justify-center gap-4 w-full">
-  <button class="bg-green-500">Delete</button>
-  <button class="bg-yellow-300">Edit</button>
+  <button class="bg-yellow-300" onclick="getInputValue(event)">Save</button>
 </div>
-</article> */
+  `;
+
+  section.append(article);
+}
+
+function getInputValue(event) {
+  const parent = event.target.closest("article").children[0];
+
+  const name = parent.children[0].children[1];
+  const phoneNumber = parent.children[1].children[1];
+  const email = parent.children[2].children[1];
+
+  const information = {
+    name: name.value,
+    phoneNumber: phoneNumber.value,
+    email: email.value,
+  };
+
+  //   const data = JSON.parse(localStorage.getItem("data"));
+
+  if (!data) {
+    const data = [];
+    // localStorage.setItem("data", JSON.stringify(data));
+    // const data = JSON.parse(localStorage.getItem("data"));
+    // renderContacts(data);
+  }
+
+  data.push(information);
+  console.log(data, information);
+  localStorage.setItem("data", JSON.stringify(data));
+  //   const arr = ["sib"];
+  //   localStorage.setItem("data", "sib");
+  renderContacts(JSON.parse(localStorage.getItem("data")));
+}
+// localStorage.removeItem("data");
+
+// const data = [];
+// console.log(data);
 
 const data = JSON.parse(localStorage.getItem("data"));
 renderContacts(data);
-console.log(data);
