@@ -24,10 +24,12 @@ function renderContacts(contacts) {
     action.className = "action flex items-center justify-center gap-4 w-full";
 
     const deleteBtn = document.createElement("button");
+    deleteBtn.addEventListener("click", deleteContacts);
     deleteBtn.className = "bg-green-500";
     deleteBtn.textContent = "Delete";
 
     const editBtn = document.createElement("button");
+    editBtn.addEventListener("click", editContacts);
     editBtn.className = "bg-yellow-300";
     editBtn.textContent = "Edit";
 
@@ -36,6 +38,14 @@ function renderContacts(contacts) {
 
     section.appendChild(article);
   });
+}
+
+function deleteContacts() {
+  console.log("salmm aziz");
+}
+
+function editContacts() {
+  console.log("salmm aziz");
 }
 
 /* <article class="contact w-[90%] bg-gray-500 flex">
